@@ -132,6 +132,59 @@ const SecondHeader = () => {
               </Stack>
             </RadioGroup>
           </FormControl>
+
+          <Typography mt={1} sx={{ fontSize: 17 }} color="text.secondary">
+            Vehicle Type
+          </Typography>
+          <FormControl>
+            {/* <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel> */}
+            <RadioGroup
+              aria-labelledby="demo-radio-buttons-group-label"
+              //   defaultValue="female"
+              name="radio-buttons-group"
+            >
+              <Stack
+                direction="row"
+                justifyContent="center"
+                alignItems="center"
+                spacing={2}
+              >
+                {" "}
+                <FormControlLabel
+                  value="Tractor"
+                  control={<Radio />}
+                  label="Tractor"
+                />
+                <FormControlLabel
+                  value="Trailer"
+                  control={<Radio />}
+                  label="Trailer"
+                />
+                <FormControlLabel
+                  value="Truck"
+                  control={<Radio />}
+                  label="Truck"
+                />
+                <FormControlLabel value="Bus" control={<Radio />} label="Bus" />
+                <FormControlLabel
+                  value="Other"
+                  control={<Radio />}
+                  label="Other"
+                />
+              </Stack>
+            </RadioGroup>
+          </FormControl>
+          <Stack
+            direction="column"
+            // justifyContent="center"
+            // alignItems="center"
+            spacing={2}
+          >
+            <Typography mt={1} sx={{ fontSize: 17 }} color="text.secondary">
+              Inspection Agency / Location (Optional)
+            </Typography>
+            <TextField id="outlined-basic" label="Inspection Agency" variant="outlined" />
+          </Stack>
         </CardContent>
       </Card>
     </Box>
