@@ -34,9 +34,9 @@ import VehicleHistoryReordDataCapture from "./VehicleHistoryReordDataCapture";
 import VehicleDetailsCapture from "./VehicleDetailsCapture";
 
 const keyToComponent = {
-  'Vehicle-History-Record' : <VehicleHistoryReordDataCapture />,
-  'Vehicle-Details' : <VehicleDetailsCapture />
-}
+  "Vehicle-History-Record": <VehicleHistoryReordDataCapture />,
+  "Vehicle-Details": <VehicleDetailsCapture />,
+};
 
 export default function CaptureData() {
   const [activeStep, setActiveStep] = React.useState(0);
@@ -49,8 +49,9 @@ export default function CaptureData() {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  return <>
-    <AppBar position="static">
+  return (
+    <>
+      <AppBar position="static">
         <Toolbar>
           <IconButton
             size="large"
@@ -62,177 +63,220 @@ export default function CaptureData() {
             {/* <MenuIco /> */}
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Annul Vehicle Inspection
+            Annual Vehicle Inspection
           </Typography>
-          
         </Toolbar>
       </AppBar>
-  <Grid container spacing={1} margin={2}>
-    
-    <Grid container item xs={12} sm={6} md={3} style={{
-      borderRight:'1px solid #888',
-      overflow : 'scroll',
-      maxHeight : '95vh',
-      // marginRight: '20px'
-    }}>
-    <Stepper activeStep={activeStep} orientation="vertical">
-        {steps.map((step, index) => (
-          <Step key={step.label}
-          onClick={() => setActiveStep(index)}
+      <Grid container spacing={1} margin={2}>
+        <Grid
+          container
+          item
+          xs={12}
+          sm={6}
+          md={3}
           style={{
-            cursor:'pointer'
-          }}>
-            <StepLabel
-              optional={
-                step.description ? (
-                  <Typography variant="caption">{step.description}</Typography>
-                ) : null
-              }
+            borderRight: "1px solid #888",
+            overflow: "scroll",
+            maxHeight: "95vh",
+            // marginRight: '20px'
+          }}
+        >
+          <Stepper activeStep={activeStep} orientation="vertical">
+            {steps.map((step, index) => (
+              <Step
+                key={step.label}
+                onClick={() => setActiveStep(index)}
+                style={{
+                  cursor: "pointer",
+                }}
+              >
+                <StepLabel
+                  optional={
+                    step.description ? (
+                      <Typography variant="caption">
+                        {step.description}
+                      </Typography>
+                    ) : null
+                  }
+                >
+                  {step.label}
+                </StepLabel>
+              </Step>
+            ))}
+          </Stepper>
+        </Grid>
+        <Grid
+          item
+          xs={12}
+          sm={6}
+          md={9}
+          style={{
+            borderRight: "1px solid #888",
+            overflow: "sc",
+            maxHeight: "95vh",
+            // marginRight: '20px'
+          }}
+        >
+          <Grid container item xs={12} direction="column">
+            <Typography
+              variant="h6"
+              style={{
+                paddingLeft: "20px",
+                marginBottom: "20px",
+              }}
             >
-              {step.label}
-            </StepLabel>
-          </Step>
-        ))}
-      </Stepper>
-    </Grid>
-    <Grid
-    item xs={12} sm={6} md={9}
-     style={{
-      borderRight:'1px solid #888',
-      overflow : 'sc',
-      maxHeight : '95vh',
-      // marginRight: '20px'
-    }}
-    >
+              {steps[activeStep].label}
+            </Typography>
+            {keyToComponent[steps[activeStep].key]
+              ? keyToComponent[steps[activeStep].key]
+              : steps[activeStep]?.tasks?.map((task) => (
+                  <SingleInput task={task} />
+                ))}
 
-    <Grid container item xs={12}
-    direction="column"
-    >
-      <Typography variant="h6" style={{
-        paddingLeft : '20px',
-        marginBottom : '20px',
-      }}>
-        {steps[activeStep].label}
-      </Typography>
-      {
-        keyToComponent[steps[activeStep].key] ? keyToComponent[steps[activeStep].key] : steps[activeStep]?.tasks?.map( ( task, index ) => (
-          <SingleInput task={task} key={`${index}-${activeStep}`}/>
-        ))
-      }
-
-      <ButtonGroup disableElevation
-      style={{
-        paddingLeft : '20px',
-        marginBottom : '20px',
-      }}>
-        { activeStep > 0 && <Button onClick={() => setActiveStep(activeStep - 1)}>Back</Button> }
-        { activeStep < steps.length - 1 && <Button variant="contained" onClick={() => setActiveStep(activeStep + 1)}>Next</Button> }
-      </ButtonGroup>
-    </Grid>
-    </Grid>
-
-  </Grid>
-  </>
+            <ButtonGroup
+              disableElevation
+              style={{
+                paddingLeft: "20px",
+                marginBottom: "20px",
+              }}
+            >
+              {activeStep > 0 && (
+                <Button onClick={() => setActiveStep(activeStep - 1)}>
+                  Back
+                </Button>
+              )}
+              {activeStep < steps.length - 1 && (
+                <Button
+                  variant="contained"
+                  onClick={() => setActiveStep(activeStep + 1)}
+                >
+                  Next
+                </Button>
+              )}
+            </ButtonGroup>
+          </Grid>
+        </Grid>
+      </Grid>
+    </>
+  );
 }
 
 const steps = [
   {
-    label: 'Vehicle History Record',
-    key : 'Vehicle-History-Record',
+    label: "Vehicle History Record",
+    key: "Vehicle-History-Record",
   },
   {
-    label: 'Vehicle Details',
-    key : 'Vehicle-Details',
+    label: "Vehicle Details",
+    key: "Vehicle-Details",
   },
   {
-    label: 'Break System',
+    label: "Break System",
     tasks: [
-      { name: 'Service Brakes' },
-      { name: 'Parking Break System' },
-      { name: 'Break Drums or Rotors' },
-    ]
-  },
-  {
-    label: 'Coupling Devices',
-    tasks: [
-      { name: 'Fifth Wheels' },
-      { name: 'Pintale Hooks' },
-      { name: 'Drawer / Towbar Eye' },
+      { name: "Service Brakes" },
+      { name: "Parking Break System" },
+      { name: "Break Drums or Rotors" },
     ],
   },
   {
-    label: 'Exhaust system',
+    label: "Coupling Devices",
     tasks: [
-      { name: 'Service Brakes' },
-      { name: 'Parking Break System' },
-      { name: 'Break Drums or Rotors' },
-    ]
+      { name: "Fifth Wheels" },
+      { name: "Pintale Hooks" },
+      { name: "Drawer / Towbar Eye" },
+    ],
   },
   {
-    label: 'Break System',
+    label: "Exhaust system",
     tasks: [
-      { name: 'Service Brakes' },
-      { name: 'Parking Break System' },
-      { name: 'Break Drums or Rotors' },
-      { name: 'Break Hose' },
-      { name: 'Break Tubing' },
-      { name: 'Service Brakes' },
-      { name: 'Parking Break System' },
-      { name: 'Break Drums or Rotors' },
-    ]
+      {
+        name: "No leaks forward of / directly below the driver / sleeper compartment",
+      },
+      { name: "Bus: No leaking / discharging in violation of standard" },
+      {
+        name: "Unlikely to burn,  damage the electrical wiring, fuel supply, or any combustible parts ",
+      },
+    ],
   },
   {
-    label: 'Coupling Devices',
-  },
-  {
-    label: 'Other',
-  },
-  {
-    label: 'Break System',
+    label: "Fuel System",
     tasks: [
-      { name: 'Service Brakes' },
-      { name: 'Parking Break System' },
-      { name: 'Break Drums or Rotors' },
-      { name: 'Break Hose' },
-      { name: 'Break Tubing' },
-    ]
+      {
+        name: "No visble leak",
+      },
+      { name: "Fuel Tank Filler Cap" },
+      {
+        name: "Fuel Tank securely attached",
+      },
+    ],
   },
   {
-    label: 'Coupling Devices',
-  },
-  {
-    label: 'Exhaust system',
-  },
-  {
-    label: 'Break System',
+    label: "Lightning Devices",
     tasks: [
-      { name: 'Service Brakes' },
-      { name: 'Parking Break System' },
-      { name: 'Break Drums or Rotors' },
-      { name: 'Break Hose' },
-      { name: 'Break Tubing' },
-    ]
+      {
+        name: "All required lights / reflectors operable ",
+      },
+    ],
   },
   {
-    label: 'Coupling Devices',
-  },
-  {
-    label: 'Exhaust system',
-  },
-  {
-    label: 'Break System',
+    label: "Safe Loading",
     tasks: [
-      { name: 'Service Brakes' },
-      { name: 'Parking Break System' },
-      { name: 'Break Drums or Rotors' },
-      { name: 'Break Hose' },
-      { name: 'Break Tubing' },
-    ]
+      {
+        name: "Vehicle parts, load dunnage, spare tire etc., secured",
+      },
+      { name: "Front End Structure" },
+      {
+        name: "Intermodal Container Securement Devices",
+      },
+    ],
   },
   {
-    label: 'Coupling Devices',
+    label: "Steering Mechanism",
+    tasks: [
+      {
+        name: "Steering Wheel Free Play",
+      },
+      { name: "Steering Column" },
+      {
+        name: "Front Axle Beam / All Other Steering Components",
+      },
+      {
+        name: "Steering Gear Box",
+      },
+      { name: "Pitman Arm" },
+      {
+        name: "Power Steering",
+      },
+      {
+        name: "Ball and Socket Joints",
+      },
+    ],
   },
   {
-    label: 'Exhaust system',
+    label: "Suspension",
+  },
+  {
+    label: "Frame ",
+  },
+  {
+    label: "Tires",
+  },
+  {
+    label: "Wheels and Rims",
+  },
+  {
+    label: "Windscreen Glazing",
+  },
+  {
+    label: "Windscreen Glazing",
+  },
+  {
+    label: "Motocoach Seats",
+  },
+  {
+    label: "Rear Impact Guard",
+  },
+  {
+    label: "Other",
   },
 ];
