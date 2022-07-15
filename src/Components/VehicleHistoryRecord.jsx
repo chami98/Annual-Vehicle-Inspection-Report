@@ -26,7 +26,7 @@ const VehicleHistoryRecord = () => {
     setExpanded(isExpanded ? panel : false);
   };
 
-  const [value, setValue] = React.useState(new Date("2022-08-18T21:11:54"));
+  const [value, setValue] = React.useState(new Date("2022-07-18T21:11:54"));
 
   const handleDate = (newValue) => {
     setValue(newValue);
@@ -73,6 +73,7 @@ const VehicleHistoryRecord = () => {
             <LocalizationProvider dateAdapter={AdapterDateFns}>
               <DesktopDatePicker
                 label="Date "
+                className = "dateVHR"
                 inputFormat="MM/dd/yyyy"
                 value={value}
                 onChange={handleDate}

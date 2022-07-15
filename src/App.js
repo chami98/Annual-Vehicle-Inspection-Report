@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homepage from "./Components/Homepage";
 import BrakeSystem from "./Components/BreakSystem";
 import BreakSystem from "./Components/BreakSystem";
+import CouplingDevices from "./Components/CouplingDevices";
 
 function App() {
   const [value, setValue] = React.useState("chamikara");
@@ -34,6 +35,8 @@ function App() {
           }
         />
         <Route path="BreakSystem" element={<BreakSystem />} />
+        <Route path="CouplingDevices" element={<CouplingDevices />} />
+
       </Routes>
     </BrowserRouter>
   );

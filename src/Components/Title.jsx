@@ -4,8 +4,8 @@ import React, { Component } from "react";
 
 const Title = ({ TitleName }) => {
   return (
-    <Box sx={{marginTop:"25vh"}}>
-      <Typography variant="h4" component="h4">
+    <Box sx={{marginTop:"35vh",textAlign:'center'}}>
+      <Typography variant="h2" component="h4">
         {TitleName}
       </Typography>
     </Box>
