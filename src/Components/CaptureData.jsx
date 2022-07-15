@@ -115,8 +115,8 @@ export default function CaptureData() {
         {steps[activeStep].label}
       </Typography>
       {
-        keyToComponent[steps[activeStep].key] ? keyToComponent[steps[activeStep].key] : steps[activeStep]?.tasks?.map( task => (
-          <SingleInput task={task} />
+        keyToComponent[steps[activeStep].key] ? keyToComponent[steps[activeStep].key] : steps[activeStep]?.tasks?.map( ( task, index ) => (
+          <SingleInput task={task} key={`${index}-${activeStep}`}/>
         ))
       }
 

@@ -23,7 +23,8 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { Link } from "react-router-dom";
 
 export default function SingleInput({ task }) {
-  const [dateSB, setDateSB] = React.useState(new Date("2022-07-18T21:11:54"));
+  const [dateSB, setDateSB] = React.useState(new Date());
+  const [value, setValue] = React.useState(undefined);
 
   const handleDateSB = (newValue) => {
     setDateSB(newValue);
@@ -40,6 +41,8 @@ export default function SingleInput({ task }) {
           aria-labelledby="demo-row-radio-buttons-group-label"
           name="row-radio-buttons-group"
           title="sadfdsaf"
+          value={value}
+          onChange={(v) => setValue(v)}
         >
           <FormControlLabel
             value="Ok"
