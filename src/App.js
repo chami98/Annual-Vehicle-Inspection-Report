@@ -13,6 +13,7 @@ import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import SecondHeader from "./Components/SecondHeader";
+import Header from "./Components/Header";
 
 function App() {
   const [value, setValue] = React.useState("chamikara");
@@ -43,9 +44,7 @@ function App() {
               Annual Vehicle Inspection Report
             </Typography>
           </Box>
-
-          <VehicleHistoryRecord />
-          <SecondHeader/>
+          <Header />
         </Stack>
       </Container>
       ;

@@ -19,7 +19,6 @@ import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
 
-
 const VehicleHistoryRecord = () => {
   const [expanded, setExpanded] = React.useState(false);
 
@@ -47,10 +46,8 @@ const VehicleHistoryRecord = () => {
       display="flex"
       justifyContent="center"
       alignItems="center"
-      minHeight="100vh"
+      minHeight="50vh"
     >
-      
-
       <Card sx={{ minWidth: 275 }}>
         <CardContent>
           <Typography sx={{ fontSize: 17 }} color="text.secondary" gutterBottom>
