@@ -10,6 +10,7 @@ import Homepage from "./Components/Homepage";
 import BrakeSystem from "./Components/BreakSystem";
 import BreakSystem from "./Components/BreakSystem";
 import CouplingDevices from "./Components/CouplingDevices";
+import ExhaustSystem from "./Components/ExhaustSystem";
 
 function App() {
   const [value, setValue] = React.useState("chamikara");
@@ -36,7 +37,7 @@ function App() {
         />
         <Route path="BreakSystem" element={<BreakSystem />} />
         <Route path="CouplingDevices" element={<CouplingDevices />} />
-
+        <Route path="ExhaustSystem" element={<ExhaustSystem />} />
       </Routes>
     </BrowserRouter>
   );

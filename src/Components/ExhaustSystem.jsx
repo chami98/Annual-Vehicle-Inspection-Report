@@ -1,6 +1,6 @@
+import React from "react";
 import { Card, CardContent, Divider, FormControl, Stack } from "@mui/material";
 import { Box, Container } from "@mui/system";
-import React from "react";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -15,15 +15,12 @@ import { DesktopDatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { Link } from "react-router-dom";
 
-const CouplingDevices = () => {
+const ExhaustSystem = () => {
   const [dateSB, setDateSB] = React.useState(new Date("2022-07-18T21:11:54"));
   const [dateFW, setDateFW] = React.useState(new Date("2022-07-18T21:11:54"));
   const [datePH, setDatePH] = React.useState(new Date("2022-07-18T21:11:54"));
   const [dateDTE, setDateDTE] = React.useState(new Date("2022-07-18T21:11:54"));
   const [dateDTT, setDateDTT] = React.useState(new Date("2022-07-18T21:11:54"));
-
-
-
 
   const handleDateSB = (newValue) => {
     setDateSB(newValue);
@@ -52,11 +49,16 @@ const CouplingDevices = () => {
         // alignItems="center"
         sx={{ width: "100%" }}
       >
-        <Card sx={{ width: "50%" }}>
+        <Card sx={{ width: "60%" }}>
           <CardContent>
-            <Box display="flex" justifyContent="center" alignItems="center" m={4} >
+            <Box
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              m={4}
+            >
               <Typography variant="h4" component="h2">
-                Coupling Devices
+                Exhaust System
               </Typography>
             </Box>
             <Box
@@ -69,7 +71,11 @@ const CouplingDevices = () => {
               <FormControl>
                 <Stack direction="row" spacing={2}></Stack>
                 <Box mb={2} mt={1} sx={{ fontSize: "18px" }}>
-                  <Divider textAlign="left"> Filth Wheels</Divider>
+                  <Divider textAlign="left">
+                    {" "}
+                    No leaks forward of / directly below the driver / sleeper
+                    compartment{" "}
+                  </Divider>
                 </Box>
                 <RadioGroup
                   row
@@ -93,7 +99,10 @@ const CouplingDevices = () => {
                   </LocalizationProvider>
                 </RadioGroup>
                 <Box mb={2} mt={1} sx={{ fontSize: "18px" }}>
-                  <Divider textAlign="left"> Pintle Hooks</Divider>
+                  <Divider textAlign="left">
+                    {" "}
+                    Bus: No Leaking / discharging in violation of standard.
+                  </Divider>
                 </Box>
                 <RadioGroup
                   row
@@ -117,7 +126,7 @@ const CouplingDevices = () => {
                   </LocalizationProvider>
                 </RadioGroup>
                 <Box mb={2} mt={1} sx={{ fontSize: "18px" }}>
-                  <Divider textAlign="left"> Drawbar / Towbar Eye</Divider>
+                  <Divider textAlign="left"> Unlike to burn, char or damage</Divider>
                 </Box>
                 <RadioGroup
                   row
@@ -195,7 +204,7 @@ const CouplingDevices = () => {
             <Box mt={5} mb={4}>
               <Stack direction="row" spacing={2}>
                 <Box sx={{ width: "50%" }}>
-                  <Link to="/BreakSystem">
+                  <Link to="/CouplingDevices">
                     <Button
                       style={{ width: "100%" }}
                       variant="contained"
@@ -237,4 +246,4 @@ const CouplingDevices = () => {
   );
 };
 
-export default CouplingDevices;
+export default ExhaustSystem;

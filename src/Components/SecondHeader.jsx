@@ -58,7 +58,9 @@ const SecondHeader = ({ setPage }) => {
       display="flex"
       justifyContent="center"
       alignItems="center"
-      minHeight="50vh"
+      minHeight="20vh"
+
+      // minHeight="50vh"
     >
       <Card sx={{ minWidth: 275 }}>
         <CardContent>

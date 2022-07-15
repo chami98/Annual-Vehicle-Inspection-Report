@@ -47,6 +47,8 @@ const VehicleHistoryRecord = () => {
       justifyContent="center"
       alignItems="center"
       minHeight="20vh"
+
+      sx={{marginBottom:"20px"}}
     >
       <Card sx={{ minWidth: 275 }}>
         <CardContent>

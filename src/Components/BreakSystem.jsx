@@ -4,6 +4,7 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import {
   Box,
   Button,
@@ -101,6 +102,11 @@ export default function BreakSystem({ setPage }) {
 
   return (
     <Container>
+      <Box display="flex" justifyContent="center" alignItems="center" m={4}>
+        <Typography variant="h4" component="h2">
+          Break System
+        </Typography>
+      </Box>
       <Box
         display="flex"
         justifyContent="center"
@@ -129,7 +135,7 @@ export default function BreakSystem({ setPage }) {
                 display="flex"
                 justifyContent="center"
                 alignItems="center"
-                minHeight="100vh"
+                // minHeight="100vh"
                 sx={{ width: "100%" }}
               >
                 <FormControl>
@@ -556,14 +562,14 @@ export default function BreakSystem({ setPage }) {
               </Box>
 
               {/* </Stack> */}
-              <Box mt={5} mb={4}>
+              <Box mt={4} mb={4} >
                 <Stack direction="row" spacing={2}>
                   <Box sx={{ width: "100%" }}>
                     <Link to="/">
                       <Button
                         style={{ width: "100%" }}
                         variant="contained"
-                        size="medium"
+                        size="large"
                         onClick={setPageHandler}
                       >
                         BACK
@@ -576,15 +582,13 @@ export default function BreakSystem({ setPage }) {
                       <Button
                         style={{ width: "100%" }}
                         variant="contained"
-                        size="medium"
+                        size="large"
                         onClick={setPageHandler}
                       >
                         NEXT
                       </Button>
                     </Link>
                   </Box>
-
-                
 
                   {/* <Button
                     style={{ width: "100%" }}

@@ -6,7 +6,7 @@ import SecondHeader from "./SecondHeader";
 import VehicleHistoryRecord from "./VehicleHistoryRecord";
 const Header = ({ page, setPage }) => {
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="xl">
       <Stack
         direction="column"
         // divider={<Divider orientation="horizontal" flexItem />}
