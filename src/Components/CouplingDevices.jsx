@@ -17,39 +17,59 @@ import { Link } from "react-router-dom";
 
 const CouplingDevices = () => {
   const [dateSB, setDateSB] = React.useState(new Date("2022-07-18T21:11:54"));
+  const [dateFW, setDateFW] = React.useState(new Date("2022-07-18T21:11:54"));
+  const [datePH, setDatePH] = React.useState(new Date("2022-07-18T21:11:54"));
+  const [dateDTE, setDateDTE] = React.useState(new Date("2022-07-18T21:11:54"));
+  const [dateDTT, setDateDTT] = React.useState(new Date("2022-07-18T21:11:54"));
+
+
+
+
   const handleDateSB = (newValue) => {
     setDateSB(newValue);
+  };
+
+  const handleDateFW = (newValue) => {
+    setDateFW(newValue);
+  };
+
+  const handleDatePH = (newValue) => {
+    setDatePH(newValue);
+  };
+
+  const handleDateDTE = (newValue) => {
+    setDateDTE(newValue);
+  };
+
+  const handleDateDTT = (newValue) => {
+    setDateDTT(newValue);
   };
   return (
     <Container>
       <Box
         display="flex"
         justifyContent="center"
-        alignItems="center"
+        // alignItems="center"
         sx={{ width: "100%" }}
       >
-        <Card sx={{ width: "100%" }}>
+        <Card sx={{ width: "50%" }}>
           <CardContent>
-            {/* <Typography sx={{ fontSize: 17 }} color="text.secondary" gutterBottom>
-            Vehicle Components Inspected
-          </Typography> */}
-            {/* <Stack
-            direction="row"
-            justifyContent="center"
-            alignItems="center"
-            spacing={2}
-          > */}
+            <Box display="flex" justifyContent="center" alignItems="center" m={4} >
+              <Typography variant="h4" component="h2">
+                Coupling Devices
+              </Typography>
+            </Box>
             <Box
               display="flex"
               justifyContent="center"
               alignItems="center"
-              minHeight="100vh"
+              // minHeight="100vh"
               sx={{ width: "100%" }}
             >
               <FormControl>
                 <Stack direction="row" spacing={2}></Stack>
                 <Box mb={2} mt={1} sx={{ fontSize: "18px" }}>
-                  <Divider textAlign="left"> Service Brakes</Divider>
+                  <Divider textAlign="left"> Filth Wheels</Divider>
                 </Box>
                 <RadioGroup
                   row
@@ -66,6 +86,104 @@ const CouplingDevices = () => {
                     <DesktopDatePicker
                       label="Repaired Date "
                       inputFormat="MM/dd/yyyy"
+                      value={dateFW}
+                      onChange={handleDateFW}
+                      renderInput={(params) => <TextField {...params} />}
+                    />
+                  </LocalizationProvider>
+                </RadioGroup>
+                <Box mb={2} mt={1} sx={{ fontSize: "18px" }}>
+                  <Divider textAlign="left"> Pintle Hooks</Divider>
+                </Box>
+                <RadioGroup
+                  row
+                  aria-labelledby="demo-row-radio-buttons-group-label"
+                  name="row-radio-buttons-group"
+                >
+                  <FormControlLabel value="Ok" control={<Radio />} label="Ok" />
+                  <FormControlLabel
+                    value="Needs Repair"
+                    control={<Radio />}
+                    label="Needs Repair"
+                  />
+                  <LocalizationProvider dateAdapter={AdapterDateFns}>
+                    <DesktopDatePicker
+                      label="Repaired Date "
+                      inputFormat="MM/dd/yyyy"
+                      value={datePH}
+                      onChange={handleDatePH}
+                      renderInput={(params) => <TextField {...params} />}
+                    />
+                  </LocalizationProvider>
+                </RadioGroup>
+                <Box mb={2} mt={1} sx={{ fontSize: "18px" }}>
+                  <Divider textAlign="left"> Drawbar / Towbar Eye</Divider>
+                </Box>
+                <RadioGroup
+                  row
+                  aria-labelledby="demo-row-radio-buttons-group-label"
+                  name="row-radio-buttons-group"
+                >
+                  <FormControlLabel value="Ok" control={<Radio />} label="Ok" />
+                  <FormControlLabel
+                    value="Needs Repair"
+                    control={<Radio />}
+                    label="Needs Repair"
+                  />
+                  <LocalizationProvider dateAdapter={AdapterDateFns}>
+                    <DesktopDatePicker
+                      label="Repaired Date "
+                      inputFormat="MM/dd/yyyy"
+                      value={dateDTE}
+                      onChange={handleDateDTE}
+                      renderInput={(params) => <TextField {...params} />}
+                    />
+                  </LocalizationProvider>
+                </RadioGroup>
+
+                <Box mb={2} mt={1} sx={{ fontSize: "18px" }}>
+                  <Divider textAlign="left"> Drawbar / Towbar Tongue</Divider>
+                </Box>
+                <RadioGroup
+                  row
+                  aria-labelledby="demo-row-radio-buttons-group-label"
+                  name="row-radio-buttons-group"
+                >
+                  <FormControlLabel value="Ok" control={<Radio />} label="Ok" />
+                  <FormControlLabel
+                    value="Needs Repair"
+                    control={<Radio />}
+                    label="Needs Repair"
+                  />
+                  <LocalizationProvider dateAdapter={AdapterDateFns}>
+                    <DesktopDatePicker
+                      label="Repaired Date "
+                      inputFormat="MM/dd/yyyy"
+                      value={dateDTT}
+                      onChange={handleDateDTT}
+                      renderInput={(params) => <TextField {...params} />}
+                    />
+                  </LocalizationProvider>
+                </RadioGroup>
+
+                <Box mb={2} mt={1} sx={{ fontSize: "18px" }}>
+                  <Divider textAlign="left"> Drawbar / Towbar Tongue</Divider>
+                </Box>
+                <RadioGroup
+                  row
+                  aria-labelledby="demo-row-radio-buttons-group-label"
+                  name="row-radio-buttons-group"
+                >
+                  <FormControlLabel value="Ok" control={<Radio />} label="Ok" />
+                  <FormControlLabel
+                    value="Needs Repair"
+                    control={<Radio />}
+                    label="Needs Repair"
+                  />
+                  <LocalizationProvider dateAdapter={AdapterDateFns}>
+                    <DesktopDatePicker
+                      label="Saddle Mounts "
+                      inputFormat="MM/dd/yyyy"
                       value={dateSB}
                       onChange={handleDateSB}
                       renderInput={(params) => <TextField {...params} />}
@@ -73,6 +191,44 @@ const CouplingDevices = () => {
                   </LocalizationProvider>
                 </RadioGroup>
               </FormControl>
+            </Box>
+            <Box mt={5} mb={4}>
+              <Stack direction="row" spacing={2}>
+                <Box sx={{ width: "100%" }}>
+                  <Link to="/BreakSystem">
+                    <Button
+                      style={{ width: "100%" }}
+                      variant="contained"
+                      size="medium"
+                      // onClick={setPageHandler}
+                    >
+                      BACK
+                    </Button>
+                  </Link>
+                </Box>
+
+                <Box sx={{ width: "100%" }}>
+                  <Link to="/CouplingDevices">
+                    <Button
+                      style={{ width: "100%" }}
+                      variant="contained"
+                      size="medium"
+                      // onClick={setPageHandler}
+                    >
+                      NEXT
+                    </Button>
+                  </Link>
+                </Box>
+
+                {/* <Button
+                    style={{ width: "100%" }}
+                    variant="contained"
+                    size="medium"
+                    onClick={setPageHandler}
+                  >
+                    NEXT
+                  </Button> */}
+              </Stack>
             </Box>
           </CardContent>
         </Card>
