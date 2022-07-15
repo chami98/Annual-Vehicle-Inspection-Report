@@ -7,7 +7,7 @@ import { styled } from "@mui/material/styles";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Homepage from "./Components/Homepage";
-import BrakeSystem from "./Components/BreakSystem";
+import CaptureData from "./Components/CaptureData";
 import BreakSystem from "./Components/BreakSystem";
 import CouplingDevices from "./Components/CouplingDevices";
 
@@ -28,14 +28,15 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route
+        {/* <Route
           path="/"
           element={
             <Homepage setPage={setPage} setValue={setValue} page={page} />
           }
-        />
-        <Route path="BreakSystem" element={<BreakSystem />} />
-        <Route path="CouplingDevices" element={<CouplingDevices />} />
+        /> */}
+        {/* <Route path="BreakSystem" element={<BreakSystem />} /> */}
+        <Route path="/" element={<CaptureData />} />
+        {/* <Route path="CouplingDevices" element={<CouplingDevices />} /> */}
 
       </Routes>
     </BrowserRouter>
