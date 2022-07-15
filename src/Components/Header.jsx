@@ -1,18 +1,20 @@
-import { Divider, Stack, Typography } from "@mui/material";
+import { Button, Divider, Stack, Typography } from "@mui/material";
 import { Box, Container } from "@mui/system";
 import React from "react";
+import BottomPagination from "./BottomPagination";
 import SecondHeader from "./SecondHeader";
 import VehicleHistoryRecord from "./VehicleHistoryRecord";
-const Header = () => {
+const Header = ({ page, setPage }) => {
   return (
     <Container maxWidth="lg">
       <Stack
         direction="column"
-        divider={<Divider orientation="horizontal" flexItem />}
-        spacing={2}
+        // divider={<Divider orientation="horizontal" flexItem />}
+        spacing={1}
       >
         <VehicleHistoryRecord />
-        <SecondHeader/>
+        <SecondHeader setPage={setPage}/>
+        
       </Stack>
     </Container>
   );

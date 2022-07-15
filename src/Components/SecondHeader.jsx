@@ -29,8 +29,9 @@ import { TimePicker } from "@mui/x-date-pickers/TimePicker";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
+import { Link, Outlet } from "react-router-dom";
 
-const SecondHeader = () => {
+const SecondHeader = ({ setPage }) => {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleChange = (panel) => (event, isExpanded) => {
@@ -38,6 +39,10 @@ const SecondHeader = () => {
   };
 
   const [value, setValue] = React.useState(new Date("2022-08-18T21:11:54"));
+
+  const setPageHandler = () => {
+    setPage(2);
+  };
 
   const bull = (
     <Box
@@ -58,7 +63,7 @@ const SecondHeader = () => {
       <Card sx={{ minWidth: 275 }}>
         <CardContent>
           <Typography sx={{ fontSize: 17 }} color="text.secondary" gutterBottom>
-            Vehicle History Record
+            Details
           </Typography>
           <Stack
             direction="row"
@@ -101,6 +106,7 @@ const SecondHeader = () => {
               variant="outlined"
             />
           </Stack>
+          <Box display="flex" justifyContent="center" alignItems="center"></Box>
           <Typography mt={1} sx={{ fontSize: 17 }} color="text.secondary">
             Vehicle Identification
           </Typography>
@@ -183,10 +189,25 @@ const SecondHeader = () => {
             <Typography mt={1} sx={{ fontSize: 17 }} color="text.secondary">
               Inspection Agency / Location (Optional)
             </Typography>
-            <TextField id="outlined-basic" label="Inspection Agency" variant="outlined" />
+            <TextField
+              id="outlined-basic"
+              label="Inspection Agency"
+              variant="outlined"
+            />
+            <Link to="/BreakSystem">
+              <Button
+                style={{ width: "100%" }}
+                variant="contained"
+                size="medium"
+                onClick={setPageHandler}
+              >
+                NEXT
+              </Button>
+            </Link>
           </Stack>
         </CardContent>
       </Card>
+      <Outlet />
     </Box>
   );
 };
